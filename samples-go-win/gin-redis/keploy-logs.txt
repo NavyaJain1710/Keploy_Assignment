@@ -1,0 +1,122 @@
+🐰 Keploy: 2026-10-03T07:58:07.939582767Z 	[34mINFO[0m	Starting Keploy	{"version": "3.8.58", "apiServerURL": "https://api.keploy.io", "inDocker": false}
+🐰 Keploy: 2026-10-03T07:58:19.204239586Z 	[34mINFO[0m	Generated config file based on the flags that are used
+🐰 Keploy: 2026-10-03T07:58:19.205888449Z 	[34mINFO[0m	agent replay posture resolved	{"replaying": false, "cmd": "record", "mode": "", "daemonset": false}
+🐰 Keploy: 2026-10-03T07:58:59.8275021Z 	[34mINFO[0m	Starting Keploy	{"version": "3.8.58", "apiServerURL": "https://api.keploy.io", "inDocker": false}
+🐰 Keploy: 2026-10-03T07:59:33.429697679Z 	[34mINFO[0m	Starting Keploy	{"version": "3.8.58", "apiServerURL": "https://api.keploy.io", "inDocker": false}
+🐰 Keploy: 2026-10-03T07:59:44.922135555Z 	[34mINFO[0m	agent replay posture resolved	{"replaying": false, "cmd": "record", "mode": "", "daemonset": false}
+🐰 Keploy: 2026-10-03T07:59:45.227972325Z 	[34mINFO[0m	Starting Keploy	{"version": "3.8.58", "apiServerURL": "https://api.keploy.io", "inDocker": false}
+🐰 Keploy: 2026-10-03T07:59:47.947453256Z 	[34mINFO[0m	pointing Java at a merged keploy truststore via JAVA_TOOL_OPTIONS (the JDK's cacerts is left untouched)	{"truststore": "/tmp/keploy-java-truststore-0.jks", "system_source": "/etc/ssl/certs/ca-certificates.crt"}
+🐰 Keploy: 2026-10-03T07:59:47.955742669Z 	[34mINFO[0m	Keploy agent is ready to record test cases and mocks.
+🐰 Keploy: 2026-10-03T07:59:47.958404851Z 	[34mINFO[0m	Starting Application :	{"executing_cmd": "/usr/bin/sh -c ./gin-redis"}
+🐰 Keploy: 2026-10-03T07:59:50.689881402Z 	[34mINFO[0m	🟠 Keploy has captured test cases for the user's application.	{"path": "/mnt/c/Users/navya/OneDrive/文档/Desktop/Keploy_assignment/samples-go-win/gin-redis/keploy/test-set-0/tests", "testcase name": "get-api-getverificationcode-1"}
+🐰 Keploy: 2026-10-03T08:00:15.789141002Z 	[34mINFO[0m	Starting Keploy	{"version": "3.8.58", "apiServerURL": "https://api.keploy.io", "inDocker": false}
+🐰 Keploy: 2026-10-03T08:00:17.888499908Z 	[34mINFO[0m	Delay is set to 5 seconds, incase your app takes more time to start use --delay to set custom delay
+🐰 Keploy: 2026-10-03T08:00:17.890631185Z 	[34mINFO[0m	Example usage: keploy test -c "/path/to/user/app" --delay 6
+🐰 Keploy: 2026-10-03T08:00:17.894737131Z 	[34mINFO[0m	agent replay posture resolved	{"replaying": true, "cmd": "test", "mode": "", "daemonset": false}
+🐰 Keploy: 2026-10-03T08:00:17.908879148Z 	[34mINFO[0m	Test Sets to be Replayed	{"testSets": ["test-set-0"]}
+🐰 Keploy: 2026-10-03T08:00:18.299118563Z 	[34mINFO[0m	Starting Keploy	{"version": "3.8.58", "apiServerURL": "https://api.keploy.io", "inDocker": false}
+🐰 Keploy: 2026-10-03T08:00:20.984011809Z 	[34mINFO[0m	pointing Java at a merged keploy truststore via JAVA_TOOL_OPTIONS (the JDK's cacerts is left untouched)	{"truststore": "/tmp/keploy-java-truststore-0.jks", "system_source": "/etc/ssl/certs/ca-certificates.crt"}
+🐰 Keploy: 2026-10-03T08:00:21.001632381Z 	[34mINFO[0m	running	{"test-set": "test-set-0", "attempt": 1}
+🐰 Keploy: 2026-10-03T08:00:21.091893585Z 	[34mINFO[0m	Starting Application :	{"executing_cmd": "/usr/bin/sh -c ./gin-redis"}
+🐰 Keploy: 2026-10-03T08:00:26.207780739Z 	[34mINFO[0m	🟠 Keploy has captured test cases for the user's application.	{"path": "/mnt/c/Users/navya/OneDrive/文档/Desktop/Keploy_assignment/samples-go-win/gin-redis/keploy/test-set-0/tests", "testcase name": "get-keploy-readiness-probe-1"}
+🐰 Keploy: 2026-10-03T08:00:26.256806864Z 	[34mINFO[0m	starting test for	{"test case": "get-api-getverificationcode-1", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:00:26.274135578Z 	[34mINFO[0m	result	{"testcase id": "[31mget-api-getverificationcode-1[0m", "testset id": "[31mtest-set-0[0m", "passed": "[31mfalse[0m"}
+🐰 Keploy: 2026-10-03T08:00:26.279590967Z 	[34mINFO[0m	Retrying passing test cases to validate mock consistency	{"replay": 1, "remaining_tests": 0}
+🐰 Keploy: 2026-10-03T08:00:26.305766436Z 	[34mINFO[0m	🟠 Keploy has captured test cases for the user's application.	{"path": "/mnt/c/Users/navya/OneDrive/文档/Desktop/Keploy_assignment/samples-go-win/gin-redis/keploy/test-set-0/tests", "testcase name": "get-api-getverificationcode-2"}
+🐰 Keploy: 2026-10-03T08:00:26.416327405Z 	[34mINFO[0m	Successfully merged and saved test-mock mappings	{"testSetID": "test-set-0", "totalTests": 0}
+🐰 Keploy: 2026-10-03T08:00:26.418143981Z 	[34mINFO[0m	Added the startup section to mappings.yaml	{"testSetID": "test-set-0", "startupMocks": 1}
+🐰 Keploy: 2026-10-03T08:00:27.015954135Z 	[34mINFO[0m	IT metrics successfully sent (with billing)	{"appID": "gin-redis", "testsRan": 1, "mocksConsumed": 1, "source": "test-command", "idempotencyKey": "b9186fe6-d27b-41f7-b05b-da09dd831554"}
+🐰 Keploy: 2026-10-03T08:00:27.241097903Z 	[34mINFO[0m	Uploading test report data to the server...
+🐰 Keploy: 2026-10-03T08:00:27.246628357Z 	[34mINFO[0m	Starting upload (progress bar disabled in non-interactive mode)	{"size_bytes": 1370}
+🐰 Keploy: 2026-10-03T08:00:28.374243107Z 	[34mINFO[0m	testReport uploaded successfully	{"testRunId": "test-run-0", "appId": "gin-redis"}
+🐰 Keploy: 2026-10-03T08:00:28.375975281Z 	[34mINFO[0m	stopping Keploy	{"reason": "replay completed successfully"}
+🐰 Keploy: 2026-10-03T08:00:28.379135552Z 	[34mINFO[0m	Stopping keploy agent
+🐰 Keploy: 2026-10-03T08:00:28.383357411Z 	[34mINFO[0m	Keploy agent stopped.
+🐰 Keploy: 2026-10-03T08:01:06.102978893Z 	[34mINFO[0m	Starting Keploy	{"version": "3.8.58", "apiServerURL": "https://api.keploy.io", "inDocker": false}
+🐰 Keploy: 2026-10-03T08:01:08.43604702Z 	[34mINFO[0m	Delay is set to 5 seconds, incase your app takes more time to start use --delay to set custom delay
+🐰 Keploy: 2026-10-03T08:01:08.437496082Z 	[34mINFO[0m	Example usage: keploy test -c "/path/to/user/app" --delay 6
+🐰 Keploy: 2026-10-03T08:01:08.439689446Z 	[34mINFO[0m	agent replay posture resolved	{"replaying": true, "cmd": "test", "mode": "", "daemonset": false}
+🐰 Keploy: 2026-10-03T08:01:08.448484448Z 	[34mINFO[0m	Test Sets to be Replayed	{"testSets": ["test-set-0"]}
+🐰 Keploy: 2026-10-03T08:01:08.702443579Z 	[34mINFO[0m	Starting Keploy	{"version": "3.8.58", "apiServerURL": "https://api.keploy.io", "inDocker": false}
+🐰 Keploy: 2026-10-03T08:01:11.494028232Z 	[34mINFO[0m	pointing Java at a merged keploy truststore via JAVA_TOOL_OPTIONS (the JDK's cacerts is left untouched)	{"truststore": "/tmp/keploy-java-truststore-0.jks", "system_source": "/etc/ssl/certs/ca-certificates.crt"}
+🐰 Keploy: 2026-10-03T08:01:11.510597494Z 	[34mINFO[0m	running	{"test-set": "test-set-0", "attempt": 1}
+🐰 Keploy: 2026-10-03T08:01:11.552078069Z 	[34mINFO[0m	Successfully loaded test-mock mappings	{"testSetID": "test-set-0", "filePath": "/mnt/c/Users/navya/OneDrive/文档/Desktop/Keploy_assignment/samples-go-win/gin-redis/keploy/test-set-0/mappings.yaml", "numTests": 0, "hasMeaningfulMappings": false}
+🐰 Keploy: 2026-10-03T08:01:11.581044109Z 	[34mINFO[0m	Starting Application :	{"executing_cmd": "/usr/bin/sh -c ./gin-redis"}
+🐰 Keploy: 2026-10-03T08:01:16.611466257Z 	[34mINFO[0m	🟠 Keploy has captured test cases for the user's application.	{"path": "/mnt/c/Users/navya/OneDrive/文档/Desktop/Keploy_assignment/samples-go-win/gin-redis/keploy/test-set-0/tests", "testcase name": "get-keploy-readiness-probe-2"}
+🐰 Keploy: 2026-10-03T08:01:16.651777807Z 	[34mINFO[0m	starting test for	{"test case": "get-api-getverificationcode-1", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:01:16.658747713Z 	[34mINFO[0m	result	{"testcase id": "get-api-getverificationcode-1", "testset id": "test-set-0", "passed": "true"}
+🐰 Keploy: 2026-10-03T08:01:16.665162096Z 	[34mINFO[0m	starting test for	{"test case": "get-keploy-readiness-probe-1", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:01:16.673035301Z 	[34mINFO[0m	result	{"testcase id": "get-keploy-readiness-probe-1", "testset id": "test-set-0", "passed": "true"}
+🐰 Keploy: 2026-10-03T08:01:16.680088324Z 	[34mINFO[0m	starting test for	{"test case": "get-api-getverificationcode-2", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:01:16.692716424Z 	[34mINFO[0m	result	{"testcase id": "[31mget-api-getverificationcode-2[0m", "testset id": "[31mtest-set-0[0m", "passed": "[31mfalse[0m"}
+🐰 Keploy: 2026-10-03T08:01:16.697781744Z 	[34mINFO[0m	Retrying passing test cases to validate mock consistency	{"replay": 1, "remaining_tests": 2}
+🐰 Keploy: 2026-10-03T08:01:17.352518857Z 	[34mINFO[0m	IT metrics successfully sent (with billing)	{"appID": "gin-redis", "testsRan": 3, "mocksConsumed": 1, "source": "test-command", "idempotencyKey": "6f1066ca-9645-42d0-a14f-3ed38b54ba8f"}
+🐰 Keploy: 2026-10-03T08:01:17.576704001Z 	[34mINFO[0m	Uploading test report data to the server...
+🐰 Keploy: 2026-10-03T08:01:17.579542844Z 	[34mINFO[0m	Starting upload (progress bar disabled in non-interactive mode)	{"size_bytes": 1731}
+🐰 Keploy: 2026-10-03T08:01:18.524833968Z 	[34mINFO[0m	testReport uploaded successfully	{"testRunId": "test-run-1", "appId": "gin-redis"}
+🐰 Keploy: 2026-10-03T08:01:18.526744297Z 	[34mINFO[0m	stopping Keploy	{"reason": "replay completed successfully"}
+🐰 Keploy: 2026-10-03T08:01:18.530130671Z 	[34mINFO[0m	Stopping keploy agent
+🐰 Keploy: 2026-10-03T08:01:18.533225455Z 	[34mINFO[0m	Keploy agent stopped.
+🐰 Keploy: 2026-10-03T08:01:39.454189351Z 	[34mINFO[0m	Starting Keploy	{"version": "3.8.58", "apiServerURL": "https://api.keploy.io", "inDocker": false}
+🐰 Keploy: 2026-10-03T08:01:42.188939667Z 	[34mINFO[0m	Delay is set to 5 seconds, incase your app takes more time to start use --delay to set custom delay
+🐰 Keploy: 2026-10-03T08:01:42.19015992Z 	[34mINFO[0m	Example usage: keploy test -c "/path/to/user/app" --delay 6
+🐰 Keploy: 2026-10-03T08:01:42.192277076Z 	[34mINFO[0m	agent replay posture resolved	{"replaying": true, "cmd": "test", "mode": "", "daemonset": false}
+🐰 Keploy: 2026-10-03T08:01:42.20117263Z 	[34mINFO[0m	Test Sets to be Replayed	{"testSets": ["test-set-0"]}
+🐰 Keploy: 2026-10-03T08:01:42.446530993Z 	[34mINFO[0m	Starting Keploy	{"version": "3.8.58", "apiServerURL": "https://api.keploy.io", "inDocker": false}
+🐰 Keploy: 2026-10-03T08:01:44.250974719Z 	[34mINFO[0m	pointing Java at a merged keploy truststore via JAVA_TOOL_OPTIONS (the JDK's cacerts is left untouched)	{"truststore": "/tmp/keploy-java-truststore-0.jks", "system_source": "/etc/ssl/certs/ca-certificates.crt"}
+🐰 Keploy: 2026-10-03T08:01:44.258548737Z 	[34mINFO[0m	running	{"test-set": "test-set-0", "attempt": 1}
+🐰 Keploy: 2026-10-03T08:01:44.301095655Z 	[34mINFO[0m	Successfully loaded test-mock mappings	{"testSetID": "test-set-0", "filePath": "/mnt/c/Users/navya/OneDrive/文档/Desktop/Keploy_assignment/samples-go-win/gin-redis/keploy/test-set-0/mappings.yaml", "numTests": 0, "hasMeaningfulMappings": false}
+🐰 Keploy: 2026-10-03T08:01:44.336637784Z 	[34mINFO[0m	Starting Application :	{"executing_cmd": "/usr/bin/sh -c ./gin-redis"}
+🐰 Keploy: 2026-10-03T08:01:49.40809094Z 	[34mINFO[0m	starting test for	{"test case": "get-api-getverificationcode-1", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:01:49.415780737Z 	[34mINFO[0m	result	{"testcase id": "get-api-getverificationcode-1", "testset id": "test-set-0", "passed": "true"}
+🐰 Keploy: 2026-10-03T08:01:49.42217551Z 	[34mINFO[0m	starting test for	{"test case": "get-keploy-readiness-probe-1", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:01:49.426994408Z 	[34mINFO[0m	result	{"testcase id": "get-keploy-readiness-probe-1", "testset id": "test-set-0", "passed": "true"}
+🐰 Keploy: 2026-10-03T08:01:49.435178299Z 	[34mINFO[0m	starting test for	{"test case": "get-api-getverificationcode-2", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:01:49.441332063Z 	[34mINFO[0m	result	{"testcase id": "get-api-getverificationcode-2", "testset id": "test-set-0", "passed": "true"}
+🐰 Keploy: 2026-10-03T08:01:49.446648284Z 	[34mINFO[0m	starting test for	{"test case": "get-keploy-readiness-probe-2", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:01:49.451551866Z 	[34mINFO[0m	result	{"testcase id": "get-keploy-readiness-probe-2", "testset id": "test-set-0", "passed": "true"}
+🐰 Keploy: 2026-10-03T08:01:49.458225025Z 	[34mINFO[0m	starting test for	{"test case": "get-api-getverificationcode-3", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:01:49.466365069Z 	[34mINFO[0m	result	{"testcase id": "[31mget-api-getverificationcode-3[0m", "testset id": "[31mtest-set-0[0m", "passed": "[31mfalse[0m"}
+🐰 Keploy: 2026-10-03T08:01:49.469170614Z 	[34mINFO[0m	Retrying passing test cases to validate mock consistency	{"replay": 1, "remaining_tests": 4}
+🐰 Keploy: 2026-10-03T08:01:50.079327411Z 	[34mINFO[0m	IT metrics successfully sent (with billing)	{"appID": "gin-redis", "testsRan": 5, "mocksConsumed": 4, "source": "test-command", "idempotencyKey": "800eefe9-64c7-4916-b4c1-62cb33a2b885"}
+🐰 Keploy: 2026-10-03T08:01:50.33471891Z 	[34mINFO[0m	Uploading test report data to the server...
+🐰 Keploy: 2026-10-03T08:01:50.33754537Z 	[34mINFO[0m	Starting upload (progress bar disabled in non-interactive mode)	{"size_bytes": 1960}
+🐰 Keploy: 2026-10-03T08:01:51.432518342Z 	[34mINFO[0m	testReport uploaded successfully	{"testRunId": "test-run-2", "appId": "gin-redis"}
+🐰 Keploy: 2026-10-03T08:01:51.434231919Z 	[34mINFO[0m	stopping Keploy	{"reason": "replay completed successfully"}
+🐰 Keploy: 2026-10-03T08:01:51.436614Z 	[34mINFO[0m	Stopping keploy agent
+🐰 Keploy: 2026-10-03T08:01:51.439218165Z 	[34mINFO[0m	Keploy agent stopped.
+🐰 Keploy: 2026-10-03T08:02:28.019888008Z 	[34mINFO[0m	Starting Keploy	{"version": "3.8.58", "apiServerURL": "https://api.keploy.io", "inDocker": false}
+🐰 Keploy: 2026-10-03T08:02:30.303059121Z 	[34mINFO[0m	Delay is set to 5 seconds, incase your app takes more time to start use --delay to set custom delay
+🐰 Keploy: 2026-10-03T08:02:30.304602029Z 	[34mINFO[0m	Example usage: keploy test -c "/path/to/user/app" --delay 6
+🐰 Keploy: 2026-10-03T08:02:30.307564542Z 	[34mINFO[0m	agent replay posture resolved	{"replaying": true, "cmd": "test", "mode": "", "daemonset": false}
+🐰 Keploy: 2026-10-03T08:02:30.326011893Z 	[34mINFO[0m	Test Sets to be Replayed	{"testSets": ["test-set-0"]}
+🐰 Keploy: 2026-10-03T08:02:30.603885193Z 	[34mINFO[0m	Starting Keploy	{"version": "3.8.58", "apiServerURL": "https://api.keploy.io", "inDocker": false}
+🐰 Keploy: 2026-10-03T08:02:33.39771399Z 	[34mINFO[0m	pointing Java at a merged keploy truststore via JAVA_TOOL_OPTIONS (the JDK's cacerts is left untouched)	{"truststore": "/tmp/keploy-java-truststore-0.jks", "system_source": "/etc/ssl/certs/ca-certificates.crt"}
+🐰 Keploy: 2026-10-03T08:02:33.40773791Z 	[34mINFO[0m	running	{"test-set": "test-set-0", "attempt": 1}
+🐰 Keploy: 2026-10-03T08:02:33.456887434Z 	[34mINFO[0m	Successfully loaded test-mock mappings	{"testSetID": "test-set-0", "filePath": "/mnt/c/Users/navya/OneDrive/文档/Desktop/Keploy_assignment/samples-go-win/gin-redis/keploy/test-set-0/mappings.yaml", "numTests": 0, "hasMeaningfulMappings": false}
+🐰 Keploy: 2026-10-03T08:02:33.500593806Z 	[34mINFO[0m	Starting Application :	{"executing_cmd": "/usr/bin/sh -c ./gin-redis"}
+🐰 Keploy: 2026-10-03T08:02:38.547369333Z 	[34mINFO[0m	starting test for	{"test case": "get-api-getverificationcode-1", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:02:38.556744954Z 	[34mINFO[0m	result	{"testcase id": "get-api-getverificationcode-1", "testset id": "test-set-0", "passed": "true"}
+🐰 Keploy: 2026-10-03T08:02:38.562454187Z 	[34mINFO[0m	starting test for	{"test case": "get-keploy-readiness-probe-1", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:02:38.566595964Z 	[34mINFO[0m	result	{"testcase id": "get-keploy-readiness-probe-1", "testset id": "test-set-0", "passed": "true"}
+🐰 Keploy: 2026-10-03T08:02:38.571410191Z 	[34mINFO[0m	starting test for	{"test case": "get-api-getverificationcode-2", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:02:38.577813614Z 	[34mINFO[0m	result	{"testcase id": "get-api-getverificationcode-2", "testset id": "test-set-0", "passed": "true"}
+🐰 Keploy: 2026-10-03T08:02:38.583213014Z 	[34mINFO[0m	starting test for	{"test case": "get-keploy-readiness-probe-2", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:02:38.587980274Z 	[34mINFO[0m	result	{"testcase id": "get-keploy-readiness-probe-2", "testset id": "test-set-0", "passed": "true"}
+🐰 Keploy: 2026-10-03T08:02:38.594741598Z 	[34mINFO[0m	starting test for	{"test case": "get-api-getverificationcode-3", "test set": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:02:38.600260649Z 	[34mINFO[0m	result	{"testcase id": "get-api-getverificationcode-3", "testset id": "test-set-0", "passed": "true"}
+🐰 Keploy: 2026-10-03T08:02:38.95967199Z 	[34mINFO[0m	uploading mock file...	{"testSet": "test-set-0"}
+🐰 Keploy: 2026-10-03T08:02:39.246467881Z 	[34mINFO[0m	Mock uploaded successfully
+🐰 Keploy: 2026-10-03T08:02:39.553263942Z 	[34mINFO[0m	IT metrics successfully sent (with billing)	{"appID": "gin-redis", "testsRan": 5, "mocksConsumed": 4, "source": "test-command", "idempotencyKey": "ca5445f1-4c0c-4a18-9e26-3dd1c24e6d9c"}
+🐰 Keploy: 2026-10-03T08:02:39.793581308Z 	[34mINFO[0m	Uploading test report data to the server...
+🐰 Keploy: 2026-10-03T08:02:39.796258986Z 	[34mINFO[0m	Starting upload (progress bar disabled in non-interactive mode)	{"size_bytes": 1816}
+🐰 Keploy: 2026-10-03T08:02:40.789206967Z 	[34mINFO[0m	testReport uploaded successfully	{"testRunId": "test-run-3", "appId": "gin-redis"}
+🐰 Keploy: 2026-10-03T08:02:40.790687935Z 	[34mINFO[0m	stopping Keploy	{"reason": "replay completed successfully"}
+🐰 Keploy: 2026-10-03T08:02:40.793544326Z 	[34mINFO[0m	Stopping keploy agent
+🐰 Keploy: 2026-10-03T08:02:40.796366099Z 	[34mINFO[0m	Keploy agent stopped.
+🐰 Keploy: 2026-10-03T08:03:52.296715999Z 	[33mWARN[0m	keploy-agent bring-up stalled; retrying with a fresh agent	{"attempt": 1, "of": 3, "error": "keploy-agent did not become ready in time"}
+🐰 Keploy: 2026-10-03T08:03:52.296843836Z 	[34mINFO[0m	Stopping keploy agent
+🐰 Keploy: 2026-10-03T08:03:52.296912019Z 	[34mINFO[0m	Agent was stopped intentionally
+🐰 Keploy: 2026-10-03T08:05:56.840251491Z 	[33mWARN[0m	keploy-agent bring-up stalled; retrying with a fresh agent	{"attempt": 2, "of": 3, "error": "keploy-agent did not become ready in time"}
+🐰 Keploy: 2026-10-03T08:05:56.840403758Z 	[34mINFO[0m	Stopping keploy agent
+🐰 Keploy: 2026-10-03T08:05:56.840321495Z 	[34mINFO[0m	Agent was stopped intentionally

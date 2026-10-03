@@ -1,0 +1,60 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: load-test-db
+    environment:
+      POSTGRES_DB: orderdb
+      POSTGRES_USER: app_user
+      POSTGRES_PASSWORD: app_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      # -h 127.0.0.1 is load-bearing: it forces a TCP probe.
+      #
+      # Without it pg_isready talks to the Unix socket, and postgres'
+      # docker-entrypoint runs a *temporary* server reachable only over that
+      # socket (listen_addresses='') once initdb has finished, to create the
+      # database and run docker-entrypoint-initdb.d. The socket therefore
+      # answers "accepting connections" while no TCP listener exists at all,
+      # so compose marks this service healthy and depends_on:
+      # service_healthy releases the dependent straight into ECONNREFUSED.
+      #
+      # Short but real: ~235ms with no initdb.d scripts, and 1.2s of
+      # false-healthy plus a 2.7s shutdown checkpoint in the CI failure this
+      # was diagnosed from. Only bites on a fresh volume -- a populated one
+      # skips the temporary server entirely, which is why it failed rarely.
+      test: ["CMD-SHELL", "pg_isready -h 127.0.0.1 -U app_user -d orderdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  api:
+    build:
+      context: .
+    container_name: load-test-api
+    environment:
+      APP_PORT: "8080"
+      POSTGRES_DSN: postgres://app_user:app_password@db:5432/orderdb?sslmode=disable
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  k6:
+    image: grafana/k6:0.49.0
+    profiles: ["loadtest"]
+    environment:
+      BASE_URL: http://api:8080
+    volumes:
+      - ./loadtest:/scripts:ro
+    depends_on:
+      api:
+        condition: service_started
+    entrypoint: ["k6"]
+
+volumes:
+  postgres_data:

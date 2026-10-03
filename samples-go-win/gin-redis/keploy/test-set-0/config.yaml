@@ -1,0 +1,8 @@
+preScript: ""
+postScript: ""
+appCommand: ""
+template: {}
+metadata: {}
+mockRegistry:
+    mock: c90e4853e490f7c8b57e0764445ebb45ca3e05c303ae88072c3f5b6c7c6a4acc
+    app: gin-redis

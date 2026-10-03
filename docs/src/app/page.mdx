@@ -1,0 +1,131 @@
+import { Hero } from '@/components/Hero';
+import { QuickStart } from '@/components/QuickStart';
+import { Callout } from '@/components/Callout';
+import { ProblemCard } from '@/components/ProblemCard';
+import { Checklist } from '@/components/Checklist';
+
+<Hero />
+
+<QuickStart />
+
+<h2 id="what-were-building" className="text-2xl font-bold tracking-tight mt-16 mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-2 scroll-mt-28">1. What we're building</h2>
+
+In this tutorial, we will take a simple Go application (built with the Gin framework and Redis) and use **Keploy** to automatically generate regression tests for it. No writing mock files by hand, no boilerplate HTTP client code—just seamless capture and replay.
+
+<h2 id="what-keploy-does" className="text-2xl font-bold tracking-tight mt-16 mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-2 scroll-mt-28">2. What Keploy does</h2>
+
+Keploy acts as a middleman for your application. When you run your application through Keploy (using `keploy record`), it intercepts all incoming API requests and all outgoing dependency calls (like database queries to Redis). 
+
+It saves these as test cases. Later, when you run `keploy test`, Keploy simulates the exact same incoming request and *mocks* the database response based on what it saw earlier.
+
+<h2 id="prerequisites" className="text-2xl font-bold tracking-tight mt-16 mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-2 scroll-mt-28">3. Prerequisites</h2>
+
+- Go (1.23 or newer)
+- Redis installed or running via Docker
+- Keploy CLI installed (`curl --silent -O -L https://keploy.io/install.sh && source install.sh`)
+
+<h2 id="project-setup" className="text-2xl font-bold tracking-tight mt-16 mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-2 scroll-mt-28">4. Project Setup</h2>
+
+First, clone the official Keploy Go samples and navigate to the Gin-Redis project:
+
+```bash
+git clone https://github.com/keploy/samples-go.git
+cd samples-go/gin-redis
+```
+
+<Callout type="aha">
+  If you are running natively without Docker, ensure your `helpers/redis/redisConnect.go` connects to `localhost:6379` instead of `myredis:6379`. You can do this elegantly by using an environment variable like `REDIS_ADDR`.
+</Callout>
+
+<h2 id="start-redis" className="text-2xl font-bold tracking-tight mt-16 mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-2 scroll-mt-28">5. Start Redis</h2>
+
+If you have Redis installed locally, start it as a background service or in another terminal:
+
+```bash
+redis-server
+```
+
+<h2 id="start-keploy" className="text-2xl font-bold tracking-tight mt-16 mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-2 scroll-mt-28">6. Start Keploy Recording</h2>
+
+This is where the magic happens. We will start our application wrapped in Keploy's recording mode. 
+
+```bash
+sudo -E keploy record -c "go run ."
+```
+
+<Callout type="info" title="Why do we need to wrap the command?">
+  Keploy needs the application running under its capture layer (often using eBPF) so it can observe the incoming HTTP requests and the application's network calls to Redis. That's why we start it through `keploy record` rather than launching it separately.
+</Callout>
+
+<h2 id="send-api-requests" className="text-2xl font-bold tracking-tight mt-16 mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-2 scroll-mt-28">7. Send API requests</h2>
+
+With the app running, trigger an API endpoint so Keploy can record it. In a new terminal:
+
+```bash
+curl -i -X GET 'http://localhost:3001/api/getVerificationCode?email=test@example.com&username=navya'
+```
+
+Take note of the `<OTP>` returned in the response. Now, submit the OTP:
+
+```bash
+curl -i -X POST 'http://localhost:3001/api/verifyCode' \
+-H 'Content-Type: application/json' \
+-d '{"otp":<OTP>,"email":"test@example.com"}'
+```
+
+<h2 id="inspect-test-cases" className="text-2xl font-bold tracking-tight mt-16 mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-2 scroll-mt-28">8. Inspect generated test cases</h2>
+
+Stop the Keploy recording process (Ctrl+C).
+
+Look inside the `keploy/` directory. You will see newly generated YAML files containing the exact HTTP requests and the mocked Redis responses.
+
+<Callout type="success" title="The Mocks are Magic">
+  Keploy generates not just the HTTP test, but also a `mocks.yaml` file. This means when we test, we won't even need a real Redis server running! Keploy replays the exact Redis responses it captured.
+</Callout>
+
+<h2 id="run-keploy-test" className="text-2xl font-bold tracking-tight mt-16 mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-2 scroll-mt-28">9. Run Keploy test</h2>
+
+Now, verify that the tests pass. 
+
+```bash
+sudo -E keploy test -c "go run ."
+```
+
+Keploy will spin up your app, send the recorded HTTP requests, mock the Redis connection, and verify if the application's response matches the original recording.
+
+<h2 id="common-problems" className="text-2xl font-bold tracking-tight mt-16 mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-2 scroll-mt-28">10. Common problems and fixes</h2>
+
+Here are real problems encountered during setup and how to fix them.
+
+<ProblemCard 
+  problem="bind: address already in use (Port 3001 conflict)"
+  cause={<span>Another process (often the app itself run normally without Keploy) was already using port <code>3001</code>, preventing Keploy's ingress proxy or eBPF layer from binding properly.</span>}
+  fix={<span>Stop all other instances of your Go application. You can check running processes with <code>ss -lnpt | grep 3001</code>.</span>}
+/>
+
+<ProblemCard 
+  problem="Keploy records no test cases (empty directory)"
+  cause={<span>The legacy <code>keploy.yml</code> configuration file was instructing Keploy to run <code>docker compose up</code>, overriding the native <code>-c "go run ."</code> command. Keploy wasn't actually running the native app.</span>}
+  fix={<span>Rename or remove the <code>keploy.yml</code> file if you want to record natively, or use the Docker network exclusively for recording.</span>}
+/>
+
+<ProblemCard 
+  problem="Permission Denied in keploy/ folder"
+  cause={<span>Keploy was previously run using <code>sudo</code>, meaning the generated <code>keploy/</code> directory was owned by root. When trying to run Keploy as a normal user later, it couldn't write new test files.</span>}
+  fix={<span>Run <code>sudo chown -R $USER:$USER keploy/</code> to take back ownership of the directory.</span>}
+/>
+
+<ProblemCard 
+  problem="Tests fail because of random data (like timestamps or OTPs)"
+  cause={<span>By default, Keploy does a strict matching of the API response. If your app generates a random OTP or timestamp, the replay response won't match the originally recorded one.</span>}
+  fix={<span>Open the generated test YAML (e.g., <code>keploy/test-set-0/tests/test-1.yaml</code>) and add the specific field (e.g., <code>body.otp: []</code>) to the <code>assertions.noise</code> array so Keploy ignores it during comparison.</span>}
+/>
+
+<h2 id="final-checklist" className="text-2xl font-bold tracking-tight mt-16 mb-6 text-gray-900 dark:text-white border-b border-gray-200 dark:border-gray-800 pb-2 scroll-mt-28">11. Final checklist</h2>
+
+<Checklist items={[
+  "Application compiles",
+  "Redis connected",
+  "Keploy records test cases",
+  "Keploy replays successfully"
+]} />
